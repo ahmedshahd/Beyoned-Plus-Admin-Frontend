@@ -1,0 +1,66 @@
+<div class="main">
+  <div class="btns-container">
+    <button class="submit-button" (click)="getEnglishFaq()">
+      Get English FAQ
+    </button>
+    <button class="submit-button" (click)="getArabicFaq()">
+      Get Arabic FAQ
+    </button>
+  </div>
+  <h3>FAQ List</h3>
+  <div *ngIf="error">
+    <p>Error: {{ error }}</p>
+  </div>
+
+  <form class="form" [formGroup]="faqForm" (ngSubmit)="createFaq()">
+    <input
+      class="input"
+      type="text"
+      name="question"
+      placeholder="Enter question"
+      formControlName="question"
+    />
+    <br />
+    <div formArrayName="answers">
+      <ng-container
+        *ngFor="let answer of faqForm.get('answers')['controls']; index as i"
+      >
+        <input
+          class="input"
+          type="text"
+          placeholder="enter answer {{ i + 1 }}"
+          formControlName="{{ i }}"
+        />
+      </ng-container>
+    </div>
+    <br />
+    <button (click)="addAnswers()">+add Answes</button>
+    <br />
+    <select
+      name="language"
+      formControlName="language"
+      (change)="changeSelectedLanguage($event)"
+    >
+      <option [value]="">Select Language</option>
+      <option [value]="'ENGLISH'">English</option>
+      <option [value]="'ARABIC'">Arabic</option>
+    </select>
+    <br />
+
+    <button class="submit-button" [disabled]="faqForm.invalid">SUBMIT</button>
+  </form>
+
+  <div class="todo-container" *ngIf="faqs">
+    <ul>
+      <li *ngFor="let faq of faqs">
+        <div class="todo">
+          <span class="todo-name">{{ faq.question }}</span>
+          <div class="todo-description">{{ faq.answers }}</div>
+        </div>
+        <button class="delete-btn" (click)="removeFaq(faq.id)">
+          DELETE FAQ
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
