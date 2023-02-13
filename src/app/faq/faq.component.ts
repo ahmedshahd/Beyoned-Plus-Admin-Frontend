@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Apollo, gql } from 'apollo-angular';
+import { Apollo } from 'apollo-angular';
 import { GET_FAQ, CREATE_FAQ, REMOVE_FAQ } from '../graphql/qraphql.queries';
 
 @Component({
@@ -22,11 +22,6 @@ export class FaqComponent implements OnInit {
     (<FormArray>this.faqForm.get('answers')).push(new FormControl());
   }
   createFaq() {
-    console.log('this.faqForm.value', this.faqForm.value);
-    console.log('this.faqForm.value.question', this.faqForm.value.question);
-    console.log('this.faqForm.value.answers', this.faqForm.value.answers);
-    console.log('this.faqForm.value.language', this.faqForm.value.language);
-
     this.apollo
       .mutate({
         mutation: CREATE_FAQ,
@@ -132,97 +127,5 @@ export class FaqComponent implements OnInit {
         this.faqs = data.faq;
         this.error = error;
       });
-    // this.apollo
-    //   .watchQuery({
-    //     query: gql`
-    //       query GetCountryByLanguage {
-    //         getCountryByLanguage {
-    //           id
-    //           name
-    //           language
-    //           createdAt
-    //           updatedAt
-    //         }
-    //       }
-    //     `,
-    //   })
-    //   .valueChanges.subscribe(({ data, error }: any) => {
-    //     this.faqs = data.getCountryByLanguage;
-    //     console.log(this.faqs);
-    //     this.error = error;
-    //   });
   }
 }
-
-// import { Component, OnInit } from '@angular/core';
-// import { FormControl, FormGroup, Validators } from '@angular/forms';
-// import { Apollo } from 'apollo-angular';
-// import { ADD_TODO, DELETE_TODO, GET_TODOS } from '../graphql/graphql.queries';
-
-// @Component({
-//   selector: 'app-todos',
-//   templateUrl: './todos.component.html',
-//   styleUrls: ['./todos.component.css']
-// })
-// export class TodosComponent implements OnInit {
-//   todos: any[] = [];
-//   error: any;
-
-//   todoForm = new FormGroup({
-//     name: new FormControl('', Validators.required),
-//     description: new FormControl('', Validators.required)
-//   });
-
-//   addTodo() {
-//     // apollo graphql query to add todo
-//     this.apollo.mutate({
-//       mutation: ADD_TODO,
-//       variables: {
-//         name: this.todoForm.value.name,
-//         description: this.todoForm.value.description,
-//       },
-//       refetchQueries: [{
-//         query: GET_TODOS
-//       }]
-//     }).subscribe(({data}: any) => {
-//       this.todos = data.addTodo;
-//       this.todoForm.reset();
-//     }
-//     , (error) => {
-//       this.error = error;
-//     }
-//     );
-
-//   }
-
-//   deleteTodo(id: string) {
-//     // apollo graphql query to delete todo
-//     this.apollo.mutate({
-//       mutation: DELETE_TODO,
-//       variables: {
-//         id: id,
-//       },
-//       refetchQueries: [{
-//         query: GET_TODOS
-//       }]
-//     }).subscribe(({data}: any) => {
-//       this.todos = data.deleteTodo;
-//     }
-//     , (error) => {
-//       this.error = error;
-//     }
-//     );
-//   }
-
-//   constructor(private apollo: Apollo) { }
-
-//   ngOnInit(): void {
-//     this.apollo.watchQuery({
-//       query: GET_TODOS
-//     }).valueChanges.subscribe(({ data, error }: any) => {
-//       this.todos = data.todos;
-//       this.error = error;
-//   }
-//   );
-//   }
-// }

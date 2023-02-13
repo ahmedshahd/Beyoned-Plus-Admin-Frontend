@@ -89,7 +89,6 @@ p {
   flex: 1;
 }
 
-
 .header {
   padding-bottom: 10px;
   color: #673ab7;
@@ -155,15 +154,15 @@ mat-card:not(.dashboard-card) {
   }
 }
 
-.courses-container {
+.faq-container {
   display: flex;
   justify-content: space-around;
 
-  .courses-list {
+  .faq-list {
     width: 49%;
   }
 
-  .course-details {
+  .faq-details {
     width: 49%;
   }
 }
