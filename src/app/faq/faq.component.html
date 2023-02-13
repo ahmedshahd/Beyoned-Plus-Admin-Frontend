@@ -1,66 +1,93 @@
-<div class="main">
-  <div class="btns-container">
-    <button class="submit-button" (click)="getEnglishFaq()">
-      Get English FAQ
-    </button>
-    <button class="submit-button" (click)="getArabicFaq()">
-      Get Arabic FAQ
-    </button>
+<div class="faq-container">
+  <div class="faq-list">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> FAQ List </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let faq of faqs">
+            <h3 matLine>{{ faq.question }}</h3>
+            <p matLine>
+              {{ faq.answers }}
+            </p>
+            <button
+              mat-icon-button
+              color="warn"
+              (click)="removeFaq(faq.id); $event.stopImmediatePropagation()"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
   </div>
-  <h3>FAQ List</h3>
-  <div *ngIf="error">
-    <p>Error: {{ error }}</p>
-  </div>
-
-  <form class="form" [formGroup]="faqForm" (ngSubmit)="createFaq()">
-    <input
-      class="input"
-      type="text"
-      name="question"
-      placeholder="Enter question"
-      formControlName="question"
-    />
-    <br />
-    <div formArrayName="answers">
-      <ng-container
-        *ngFor="let answer of faqForm.get('answers')['controls']; index as i"
-      >
-        <input
-          class="input"
-          type="text"
-          placeholder="enter answer {{ i + 1 }}"
-          formControlName="{{ i }}"
-        />
-      </ng-container>
-    </div>
-    <br />
-    <button (click)="addAnswers()">+add Answes</button>
-    <br />
-    <select
-      name="language"
-      formControlName="language"
-      (change)="changeSelectedLanguage($event)"
-    >
-      <option [value]="">Select Language</option>
-      <option [value]="'ENGLISH'">English</option>
-      <option [value]="'ARABIC'">Arabic</option>
-    </select>
-    <br />
-
-    <button class="submit-button" [disabled]="faqForm.invalid">SUBMIT</button>
-  </form>
-
-  <div class="todo-container" *ngIf="faqs">
-    <ul>
-      <li *ngFor="let faq of faqs">
-        <div class="todo">
-          <span class="todo-name">{{ faq.question }}</span>
-          <div class="todo-description">{{ faq.answers }}</div>
-        </div>
-        <button class="delete-btn" (click)="removeFaq(faq.id)">
-          DELETE FAQ
-        </button>
-      </li>
-    </ul>
+  <div class="faq-details">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Create FAQ </mat-card-title>
+      </mat-card-header>
+      <form [formGroup]="faqForm" (ngSubmit)="createFaq()">
+        <mat-card-content>
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="Enter question"
+              formControlName="question"
+              type="text"
+              name="question"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <div formArrayName="answers">
+              <ng-container
+                *ngFor="
+                  let answer of faqForm.get('answers')['controls'];
+                  index as i
+                "
+              >
+                <input
+                  matInput
+                  placeholder="enter answer {{ i + 1 }}"
+                  formControlName="{{ i }}"
+                  required
+                />
+                <br />
+              </ng-container>
+            </div>
+          </mat-form-field>
+          <section>
+            <button (click)="addAnswers()">+add Answers</button>
+          </section>
+          <mat-form-field appearance="fill">
+            <mat-label>Select Language</mat-label>
+            <mat-select
+              required
+              name="language"
+              formControlName="language"
+              (change)="changeSelectedLanguage($event)"
+            >
+              <mat-option [value]="'ENGLISH'">English </mat-option>
+              <mat-option [value]="'ARABIC'">Arabic </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            [disabled]="faqForm.invalid"
+            type="submit"
+            mat-button
+            color="primary"
+          >
+            Save
+          </button>
+          <button type="button" mat-button (click)="faqForm.reset()">
+            Cancel
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
   </div>
 </div>

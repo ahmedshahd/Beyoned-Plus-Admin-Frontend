@@ -9,10 +9,9 @@ import { AuthService } from './shared/services/auth/auth.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Angular 13 Fundamentals';
+  title = 'Beyond Plus Admin Dashboard';
   links = [
     { path: '/home', icon: 'home', title: 'Home' },
-    { path: '/courses', icon: 'view_list', title: 'Courses' },
     { path: '/faq', icon: 'view_list', title: 'FAQ' },
     { path: '/label', icon: 'view_list', title: 'Label' },
     {
