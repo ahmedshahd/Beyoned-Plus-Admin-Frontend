@@ -1,3 +1,4 @@
+import { ContactUsComponent } from './contact-us/contact-us.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -15,6 +16,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'label', component: LabelComponent },
+  { path: 'contactUs', component: ContactUsComponent },
+
   { path: 'learnIcon', component: LearnIconComponent },
   { path: 'lineOfBusiness', component: LineOfBusinessComponent },
   { path: 'termsAndConditions', component: TermsAndConditionsComponent },

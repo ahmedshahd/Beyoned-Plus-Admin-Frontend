@@ -339,6 +339,49 @@ const REMOVE_LINE_OF_BUSINESS = gql`
   }
 `;
 
+/////********                                     *********//////////////
+/////****************** CONTACT US QUERIES AND MUTITION *********//////////////
+/////********                                     *********//////////////
+
+const GET_CONTACT_US = gql`
+  query ContactUs {
+    contactUs {
+      id
+      phoneNumber
+      email
+      websiteUrl
+      createdAt
+      updatedAt
+    }
+  }
+`;
+
+const CREATE_CONTACT_US = gql`
+  mutation Mutation($createContactUsInput: CreateContactUsInput!) {
+    createContactUs(createContactUsInput: $createContactUsInput) {
+      id
+      phoneNumber
+      email
+      websiteUrl
+      createdAt
+      updatedAt
+    }
+  }
+`;
+
+const REMOVE_CONTACT_US = gql`
+  mutation Mutation($removeContactUsId: Int!) {
+    removeContactUs(id: $removeContactUsId) {
+      id
+      phoneNumber
+      email
+      websiteUrl
+      createdAt
+      updatedAt
+    }
+  }
+`;
+
 export {
   GET_FAQ,
   CREATE_FAQ,
@@ -361,4 +404,7 @@ export {
   GET_LINE_OF_BUSINESS,
   CREATE_LINE_OF_BUSINESS,
   REMOVE_LINE_OF_BUSINESS,
+  REMOVE_CONTACT_US,
+  GET_CONTACT_US,
+  CREATE_CONTACT_US,
 };

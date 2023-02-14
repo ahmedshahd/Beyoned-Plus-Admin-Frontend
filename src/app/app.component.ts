@@ -22,6 +22,7 @@ export class AppComponent {
     { path: '/learnIcon', icon: 'view_list', title: 'Learn Icon' },
     { path: '/lineOfBusiness', icon: 'view_list', title: 'Line Of Business' },
     { path: '/welcomeScreen', icon: 'view_list', title: 'Welcome Screen' },
+    { path: '/contactUs', icon: 'view_list', title: 'Contact Us' },
   ];
 
   isAuthenticated$ = this.authService.isAuthenticated$.pipe(shareReplay(1));
