@@ -17,6 +17,7 @@ import { LearnIconComponent } from './learn-icon/learn-icon.component';
 import { LineOfBusinessComponent } from './line-of-business/line-of-business.component';
 import { GraphQLModule } from './graphql.module';
 import { LabelComponent } from './label/label.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { LabelComponent } from './label/label.component';
     WelcomeScreenComponent,
     LearnIconComponent,
     LineOfBusinessComponent,
+    ContactUsComponent,
   ],
   providers: [AuthService, NotificationService],
   bootstrap: [AppComponent],
