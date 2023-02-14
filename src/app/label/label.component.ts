@@ -37,7 +37,7 @@ export class LabelComponent implements OnInit {
           {
             query: GET_LABEL,
             variables: {
-              language: 'ENGLISH',
+              language: 'ARABIC',
             },
           },
         ],
@@ -64,7 +64,7 @@ export class LabelComponent implements OnInit {
           {
             query: GET_LABEL,
             variables: {
-              language: 'ENGLISH',
+              language: 'ARABIC',
             },
           },
         ],

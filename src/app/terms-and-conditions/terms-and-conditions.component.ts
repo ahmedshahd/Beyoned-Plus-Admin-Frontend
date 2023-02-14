@@ -34,6 +34,9 @@ export class TermsAndConditionsComponent implements OnInit {
         refetchQueries: [
           {
             query: GET_TERMS_AND_CONDITIONS,
+            variables: {
+              language: 'ARABIC',
+            },
           },
         ],
       })
@@ -58,6 +61,9 @@ export class TermsAndConditionsComponent implements OnInit {
         refetchQueries: [
           {
             query: GET_TERMS_AND_CONDITIONS,
+            variables: {
+              language: 'ARABIC',
+            },
           },
         ],
       })

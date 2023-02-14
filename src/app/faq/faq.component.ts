@@ -35,6 +35,9 @@ export class FaqComponent implements OnInit {
         refetchQueries: [
           {
             query: GET_FAQ,
+            variables: {
+              language: 'ARABIC',
+            },
           },
         ],
       })
@@ -59,6 +62,9 @@ export class FaqComponent implements OnInit {
         refetchQueries: [
           {
             query: GET_FAQ,
+            variables: {
+              language: 'ARABIC',
+            },
           },
         ],
       })
