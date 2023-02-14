@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './material.module';
 import { AuthService } from './shared/services/auth/auth.service';
-import { NotificationService } from './shared/services/notifications/notification.service';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
 import { LearnIconComponent } from './learn-icon/learn-icon.component';
@@ -42,7 +41,7 @@ import { UploaderComponent } from './uploader/uploader.component';
     ContactUsComponent,
     UploaderComponent,
   ],
-  providers: [AuthService, NotificationService],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
