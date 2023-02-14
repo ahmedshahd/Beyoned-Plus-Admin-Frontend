@@ -1,5 +1,5 @@
 {
-  "name": "angular13-fundamentals-workshop",
+  "name": "beyond-plus-admin-dashboard",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -16,18 +16,20 @@
     "@angular/common": "~13.0.0",
     "@angular/compiler": "~13.0.0",
     "@angular/core": "~13.0.0",
+    "@angular/fire": "^7.5.0",
     "@angular/forms": "~13.0.0",
     "@angular/material": "^13.0.2",
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
+    "@apollo/client": "3.6.9",
     "apollo-angular": "^3.0.1",
     "concurrently": "^6.4.0",
+    "firebase": "^9.17.1",
+    "graphql": "^15.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4",
-    "@apollo/client": "3.6.9",
-    "graphql": "^15.0.0"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.0.3",
