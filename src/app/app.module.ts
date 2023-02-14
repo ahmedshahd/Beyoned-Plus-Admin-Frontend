@@ -18,6 +18,7 @@ import { LineOfBusinessComponent } from './line-of-business/line-of-business.com
 import { GraphQLModule } from './graphql.module';
 import { LabelComponent } from './label/label.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { UploaderComponent } from './uploader/uploader.component';
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     LearnIconComponent,
     LineOfBusinessComponent,
     ContactUsComponent,
+    UploaderComponent,
   ],
   providers: [AuthService, NotificationService],
   bootstrap: [AppComponent],

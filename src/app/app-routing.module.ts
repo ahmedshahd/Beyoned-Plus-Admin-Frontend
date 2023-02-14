@@ -1,3 +1,4 @@
+import { UploaderComponent } from './uploader/uploader.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'faq', component: FaqComponent },
   { path: 'label', component: LabelComponent },
   { path: 'contactUs', component: ContactUsComponent },
+  { path: 'uploader', component: UploaderComponent },
 
   { path: 'learnIcon', component: LearnIconComponent },
   { path: 'lineOfBusiness', component: LineOfBusinessComponent },

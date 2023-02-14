@@ -11,7 +11,7 @@ import { AuthService } from './shared/services/auth/auth.service';
 export class AppComponent {
   title = 'Beyond Plus Admin Dashboard';
   links = [
-    { path: '/home', icon: 'home', title: 'Home' },
+    { path: '/uploader', icon: 'cloud_upload', title: 'Uploader' },
     { path: '/faq', icon: 'view_list', title: 'FAQ' },
     { path: '/label', icon: 'view_list', title: 'Label' },
     {
