@@ -36,6 +36,9 @@ export class LearnIconComponent implements OnInit {
         refetchQueries: [
           {
             query: GET_LEARN_ICON,
+            variables: {
+              language: 'ARABIC',
+            },
           },
         ],
       })
@@ -60,6 +63,9 @@ export class LearnIconComponent implements OnInit {
         refetchQueries: [
           {
             query: GET_LEARN_ICON,
+            variables: {
+              language: 'ARABIC',
+            },
           },
         ],
       })
